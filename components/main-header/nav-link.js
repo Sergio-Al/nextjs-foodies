@@ -6,7 +6,6 @@ import classes from "./nav-link.module.css";
 
 export default function NavLink({ href, children }) {
   const path = usePathname();
-  console.log(path);
   return (
     <Link
       href={href}
