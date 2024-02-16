@@ -1,10 +1,15 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import classes from "./page.module.css";
 import { getMeal } from "@/lib/meals";
 
 export default function MealsSlugPage({ params }) {
   const meal = getMeal(params.slug);
+
+  if(!meal) {
+    notFound(); // It will find the closest not found page and render it
+  }
 
   meal.instructions = meal.instructions.replace(/\n/g, "<br>");
 
